@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Still Us</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@300;400&family=Dancing+Script:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.0.0-beta.4/css/lightgallery-bundle.css">
+</head>
+
+<body>
+    <!-- Background Music -->
+    <audio id="backgroundMusic" loop>
+        <source src="assests/Alicia Keys - Fallin' (Official HD Video).mp3">
+    </audio>
+
+    <!-- Voice Note -->
+    <audio id="voiceNote">
+        <source src="assets/voice-note.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- Music Player (Fixed) -->
+    <div class="music-player" id="musicPlayer">
+        <button id="playPauseBtn" class="music-control-btn">
+            <i class="fas fa-play"></i>
+        </button>
+        <div class="music-info">
+            <span class="music-title">Alicia Keys</span>
+            <span class="music-artist">Playing softly</span>
+        </div>
+        <div class="volume-control">
+            <button id="muteBtn" class="mute-btn">
+                <i class="fas fa-volume-up"></i>
+            </button>
+            <input type="range" id="volumeSlider" class="volume-slider" min="0" max="100" value="30">
+        </div>
+    </div>
+
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Opening Screen -->
+        <section id="opening" class="screen active">
+            <div class="heartbeat"></div>
+            <div class="stars"></div>
+            <div class="content fade-in">
+                <h1 class="handwritten">No matter the distance...<br>
+                    <span class="highlight">you are still my home.</span>
+                </h1>
+                <button id="startBtn" class="breathing-btn">
+                    <i class="fas fa-hand-holding-heart"></i> Take my hand
+                </button>
+            </div>
+        </section>
+
+        <!-- Apology Section -->
+        <section id="apology" class="screen">
+            <div class="paper-texture">
+                <div class="handwritten-container">
+                    <h2><i class="fas fa-heart-crack"></i> My Apology</h2>
+
+                    <div class="apology-line visible">
+                        <div class="handwriting">I hurt you.</div>
+                    </div>
+
+                    <div class="apology-line">
+                        <div class="handwriting">When I was distant and closed off, I failed to communicate my love.</div>
+                    </div>
+
+                    <div class="apology-line">
+                        <div class="handwriting">I was focused on my own fears instead of our connection.</div>
+                    </div>
+
+                    <div class="apology-line">
+                        <div class="handwriting">That was my failure, not yours.</div>
+                    </div>
+
+                    <div class="apology-line">
+                        <div class="handwriting">I'm truly sorry for the pain I caused.</div>
+                    </div>
+
+                    <div class="voice-note-container">
+                        <button id="voiceBtn" class="voice-btn">
+                            <i class="fas fa-microphone"></i> Listen to my voice
+                        </button>
+                        <div class="voice-playing" style="display: none;">
+                            <i class="fas fa-play"></i> Playing my heart...
+                        </div>
+                    </div>
+
+                    <button class="nav-btn next-btn">
+                        Continue <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Memory Lane -->
+        <section id="memories" class="screen">
+            <div class="memory-container">
+                <h2><i class="fas fa-memory"></i> Our Moments</h2>
+                <div class="timeline">
+                    <div class="timeline-line"></div>
+
+                    <div class="memory-card" style="--delay: 0">
+                        <div class="memory-icon">🌅</div>
+                        <div class="memory-content">
+                            <h3>First Day i met you</h3>
+                            <p class="memory-date">October 5th</p>
+                            <p class="memory-note">It was in class and i was just behind you</p>
+                        </div>
+                    </div>
+
+                    <div class="memory-card" style="--delay: 1">
+                        <div class="memory-icon">😂</div>
+                        <div class="memory-content">
+                            <h3>Our school Moments</h3>
+                            <p class="memory-date">December 3</p>
+                            <p class="memory-note">Those fun and long studying moments</p>
+                        </div>
+                    </div>
+
+                    <div class="memory-card" style="--delay: 2">
+                        <div class="memory-icon">☕</div>
+                        <div class="memory-content">
+                            <h3>Conversations</h3>
+                            <p class="memory-date">Many mornings</p>
+                            <p class="memory-note">Those moments of deep connection and understanding</p>
+                        </div>
+                    </div>
+
+                    <div class="memory-card" style="--delay: 3">
+                        <div class="memory-icon">🎂</div>
+                        <div class="memory-content">
+                            <h3>Your Birthday</h3>
+                            <p class="memory-date">17th March 2006</p>
+                            <p class="memory-note">That special day we celebrated you</p>
+                        </div>
+                    </div>
+
+                    <button class="nav-btn next-btn">
+                    Continue <i class="fas fa-arrow-right"></i>
+                </button>
+                </div>
+        </section>
+
+        <!-- Media Gallery Section -->
+        <section id="gallery" class="screen">
+            <div class="gallery-container">
+                <h2><i class="fas fa-photo-video"></i> Our Moments in Time</h2>
+                <p class="gallery-subtitle">Little pieces of our story</p>
+
+                <div class="gallery-filters">
+                    <button class="filter-btn active" data-filter="all">All Memories</button>
+                    <button class="filter-btn" data-filter="photo">Photos</button>
+                    <button class="filter-btn" data-filter="video">Videos</button>
+                </div>
+
+                <div class="media-grid" id="mediaGrid">
+                    <!-- Photos -->
+                    <div class="media-item photo" data-src="assets/gallery/photo1.jpg">
+                        <div class="media-preview">
+                            <img src="assets/gallery/photo1-thumb.jpg" alt="Our first meeting">
+                            <div class="media-overlay">
+                                <i class="fas fa-image"></i>
+                                <div class="media-title">School moments</div>
+                                <div class="media-date">October 2024</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="media-item photo" data-src="assets/gallery/photo2.jpg">
+                        <div class="media-preview">
+                            <img src="assets/gallery/photo2-thumb.jpg" alt="That trip">
+                            <div class="media-overlay">
+                                <i class="fas fa-image"></i>
+                                <div class="media-title">Our Adventure</div>
+                                <div class="media-date">December 2024</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Videos -->
+                    <div class="media-item video" data-src="assets/gallery/video1.mp4" data-poster="assets/gallery/video1-thumb.jpg">
+                        <div class="media-preview">
+                            <div class="video-thumbnail">
+                                <img src="assets/gallery/video1-thumb.jpg" alt="Beach day">
+                                <div class="play-button">
+                                    <i class="fas fa-play"></i>
+                                </div>
+                            </div>
+                            <div class="media-overlay">
+                                <i class="fas fa-video"></i>
+                                <div class="media-title">Revision Days</div>
+                                <div class="media-date">January 2025</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="media-item photo" data-src="assets/gallery/photo3.jpg">
+                        <div class="media-preview">
+                            <img src="assets/gallery/photo3-thumb.jpg" alt="Quiet moment">
+                            <div class="media-overlay">
+                                <i class="fas fa-image"></i>
+                                <div class="media-title">Restaurant Moments</div>
+                                <div class="media-date">June 2025</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="media-item video" data-src="assets/gallery/video2.mp4" data-poster="assets/gallery/video2-thumb.jpg">
+                        <div class="media-preview">
+                            <div class="video-thumbnail">
+                                <img src="assets/gallery/video2-thumb.jpg" alt="Birthday surprise">
+                                <div class="play-button">
+                                    <i class="fas fa-play"></i>
+                                </div>
+                            </div>
+                            <div class="media-overlay">
+                                <i class="fas fa-video"></i>
+                                <div class="media-title">Your Birthday</div>
+                                <div class="media-date"> 17th March 2006</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="media-item photo" data-src="assets/gallery/photo4.jpg">
+                        <div class="media-preview">
+                            <img src="assets/gallery/photo4-thumb.jpg" alt="Last Christmas">
+                            <div class="media-overlay">
+                                <i class="fas fa-image"></i>
+                                <div class="media-title">Now we're apart</div>
+                                <div class="media-date">July 2025</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <button class="nav-btn next-btn">
+                    Continue <i class="fas fa-arrow-right"></i>
+                </button>
+            </div>
+        </section>
+
+        <!-- Distance Visualizer -->
+        <section id="distance" class="screen">
+            <div class="distance-container">
+                <h2><i class="fas fa-map-marker-alt"></i> Between Us</h2>
+
+                <div class="map-visual">
+                    <div class="city" id="city1">
+                        <div class="city-dot"></div>
+                        <div class="city-label">You</div>
+                    </div>
+
+                    <div class="connecting-line">
+                        <div class="pulse-dot"></div>
+                    </div>
+
+                    <div class="city" id="city2">
+                        <div class="city-dot"></div>
+                        <div class="city-label">Me</div>
+                    </div>
+                </div>
+
+                <div class="distance-info">
+                    <div class="distance-number">
+                        <span id="miles">about 1703(i'm not really sure😅)</span> miles
+                    </div>
+                    <p class="distance-poem">
+                        Distance exists in space...<br>
+                        <span class="emphasis">but love travels at the speed of memory.</span>
+                    </p>
+                    <p class="small-note">And I remember you constantly.</p>
+                </div>
+
+                <button class="nav-btn next-btn">
+                    Continue <i class="fas fa-arrow-right"></i>
+                </button>
+            </div>
+        </section>
+
+        <!-- Why I Love You -->
+        <section id="reasons" class="screen">
+            <div class="reasons-container">
+                <h2><i class="fas fa-heart"></i> What I Love About Who You Are</h2>
+
+                <div class="reasons-grid">
+                    <div class="reason-card" style="--order: 1">
+                        <div class="reason-content">
+                            How your mind finds connections between seemingly unrelated things
+                        </div>
+                    </div>
+
+                    <div class="reason-card" style="--order: 2">
+                        <div class="reason-content">
+                            The way you advocate for people when they can't speak for themselves
+                        </div>
+                    </div>
+
+                    <div class="reason-card" style="--order: 3">
+                        <div class="reason-content">
+                            How you've softened my edges without erasing who I am
+                        </div>
+                    </div>
+
+                    <div class="reason-card" style="--order: 4">
+                        <div class="reason-content">
+                            Your quiet strength that doesn't need to announce itself
+                        </div>
+                    </div>
+
+                    <div class="reason-card" style="--order: 5">
+                        <div class="reason-content">
+                            The specific way you care for people - noticing what others miss
+                        </div>
+                    </div>
+
+                    <div class="reason-card" style="--order: 6">
+                        <div class="reason-content">
+                            How you make ordinary moments feel meaningful
+                        </div>
+                    </div>
+                </div>
+
+                <button class="nav-btn next-btn">
+                    Continue <i class="fas fa-arrow-right"></i>
+                </button>
+            </div>
+        </section>
+
+        <!-- Promises -->
+        <section id="promises" class="screen">
+            <div class="promises-container">
+                <h2><i class="fas fa-star"></i> My Commitments</h2>
+                <p class="subtitle">Not perfect promises, but daily intentions</p>
+
+                <div class="constellation">
+                    <div class="star" style="--top: 20%; --left: 20%;">
+                        <div class="star-icon">👂</div>
+                        <div class="star-text">I will listen first, respond second</div>
+                    </div>
+
+                    <div class="star" style="--top: 40%; --left: 70%;">
+                        <div class="star-icon">🌌</div>
+                        <div class="star-text">I will respect your need for space</div>
+                    </div>
+
+                    <div class="star" style="--top: 60%; --left: 30%;">
+                        <div class="star-icon">💬</div>
+                        <div class="star-text">I will communicate my fears instead of acting on them</div>
+                    </div>
+
+                    <div class="star" style="--top: 80%; --left: 80%;">
+                        <div class="star-icon">🕊️</div>
+                        <div class="star-text">I will hold our memories gently, without demanding more</div>
+                    </div>
+
+                    <!-- Constellation lines -->
+                    <div class="constellation-line line1"></div>
+                    <div class="constellation-line line2"></div>
+                    <div class="constellation-line line3"></div>
+                </div>
+
+                <button class="nav-btn next-btn">
+                    Continue <i class="fas fa-arrow-right"></i>
+                </button>
+            </div>
+        </section>
+
+        <!-- Final Choice -->
+        <section id="choice" class="screen">
+            <div class="choice-container">
+                <div class="final-message">
+                    <p class="message-text">
+                        It's a reminder that my love for you remains—<br> quiet, patient, and whole.
+                    </p>
+                    <p class="breathing-text">
+                        I'm here if you need anything.
+                    </p>
+                </div>
+                <div class="restart-container">
+                    <button id="restartBtn" class="text-btn">
+                        <i class="fas fa-redo"></i> View again
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Progress Dots -->
+        <div class="progress-dots">
+            <span class="dot active" data-screen="0"></span>
+            <span class="dot" data-screen="1"></span>
+            <span class="dot" data-screen="2"></span>
+            <span class="dot" data-screen="3"></span>
+            <span class="dot" data-screen="4"></span>
+            <span class="dot" data-screen="5"></span>
+            <span class="dot" data-screen="6"></span>
+            <span class="dot" data-screen="7"></span>
+        </div>
+        </div>
+
+        <!-- Response Message Modal -->
+        <div id="responseModal" class="response-modal">
+            <div class="response-modal-content">
+                <button class="close-response">&times;</button>
+                <h2>Your Thoughts</h2>
+                <textarea id="responseText" placeholder="Share your feelings..."></textarea>
+                <button id="submitResponse" class="submit-btn">Submit</button>
+                <div id="responseThankYou" class="thank-you-message" style="display: none;">
+                    <i class="fas fa-heart"></i> Thank you for sharing!
+                </div>
+            </div>
+
+            <!-- Photo Viewer Modal -->
+            <div id="photoModal" class="photo-modal">
+                <div class="photo-modal-content">
+                    <button class="close-photo">&times;</button>
+                    <img id="modalPhoto" src="" alt="">
+                    <div class="photo-info">
+                        <h3 id="photoTitle"></h3>
+                        <p id="photoDate"></p>
+                    </div>
+                </div>
+            </div>
+
+            <script src="https://cdn.jsdelivr.net/npm/lightgallery@2.0.0-beta.4/lightgallery.umd.min.js"></script>
+            <script src="script.js"></script>
+</body>
+
+</html>
